@@ -1,0 +1,260 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #e1e8f0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Heading */
+h1 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #0078D4;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Input and Button Section */
+#input_text {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 5px;
+    border: 2px solid #0078D4;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    animation: slideInFromLeft 0.5s ease-in-out;
+}
+
+#add_button {
+    background-color: #0078D4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    max-width: 200px;
+    animation: slideInFromRight 0.5s ease-in-out;
+}
+
+#add_button:hover {
+    background-color: #005BB5;
+    transform: scale(1.1);
+}
+
+/* Error Message */
+#error_message {
+    display: none;
+    color: #CC0000;
+    font-size: 0.9rem;
+    text-align: center;
+    animation: bounceIn 0.5s ease-in-out;
+}
+
+/* Task Containers */
+#task_container,
+#completed_task_container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* Task Card Styling */
+.list_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    word-wrap: break-word;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.list_item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Checkbox */
+.check_box {
+    margin-right: 10px;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/* Task Text */
+.list_item p {
+    flex: 1;
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    word-wrap: break-word;
+}
+/* Edit and Save Button Styling */
+.editButton,
+.saveBtn {
+    background-color: #d5ff4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.saveBtn{
+    margin-right : -12px;
+}
+.inputBox
+{
+    font-size: 16px;
+    width:140px;
+}
+.editButton:hover,
+.saveBtn:hover {
+    background-color: #3e9a17;
+    transform: scale(1.1);
+}
+
+/* Delete and Cancel Button Styling */
+.delete_button,
+.cancelBtn {
+    background-color: #FF4D4D;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete_button:hover,
+.cancelBtn:hover {
+    background-color: #CC0000;
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #input_text,
+    #add_button {
+        width: 100%;
+    }
+
+    .list_item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .list_item p {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .delete_button {
+        align-self: flex-end;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) { 
+    h1 {
+        font-size: 2rem;
+    }
+
+    #input_text {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    #add_button {
+        font-size: 0.9rem;
+    }
+
+    .list_item {
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .delete_button {
+        font-size: 0.8rem;
+    }
+
+    #error_message {
+        font-size: 0.8rem;
+    }
+}
